@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 beforeInput = new Vector3(horizontal, vertical);
 
         beforeInput = new Vector3(Check(beforeInput.x, Vector3.right), Check(beforeInput.y, Vector3.forward));
-        Debug.Log(beforeInput.x);
+        //Debug.Log(beforeInput.x);
         pA.SetInput(beforeInput);
 
         input = new Vector3(GetAcceleratedInput(beforeInput.x, input.x), 0f, GetAcceleratedInput(beforeInput.y, input.z));
@@ -47,18 +47,24 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = moveDirection;
 
-        Quaternion targetRot = Quaternion.LookRotation(rb.velocity);
-
-        if (input.x == 0 && input.z == 0)
+        if(rb.velocity != Vector3.zero)
         {
-            targetRot = previousRotation;
-        }
-        else
-        {
-            previousRotation = targetRot;
-        }
+            Quaternion targetRot = Quaternion.LookRotation(rb.velocity);
 
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, Time.deltaTime * rotationSpeed);
+            if (input.x == 0 && input.z == 0)
+            {
+                targetRot = previousRotation;
+            }
+            else
+            {
+                previousRotation = targetRot;
+            }
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, Time.deltaTime * rotationSpeed);
+        }
+        
+
+        
 
         
     }

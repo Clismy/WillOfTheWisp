@@ -37,16 +37,18 @@ public class PlayerInteract : MonoBehaviour
                 else if (currentLayer == LayerMask.NameToLayer(pickUpLayerName))
                 {
 
-                    string name = closestObject.GetComponent<PickUp>().GetItemName();
-                    pI.AddToInventory(name);
-                    closestObject.SetActive(false);
+                    // string name = closestObject.GetComponent<PickUp>().GetItemName();
+                    //pI.AddToInventory(name);
+                    //closestObject.SetActive(false);
+
+                    closestObject.GetComponent<Lever>().InteractLever();
                 }
                 else if (currentLayer == LayerMask.NameToLayer(lookLayerName))
                 {
 
                 }
 
-                closestObject.layer = 0;
+                //closestObject.layer = 0;
                 closestObject = null;
             }
         }
