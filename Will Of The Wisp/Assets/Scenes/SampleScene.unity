@@ -373,6 +373,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 20
+  activatedButtonColor: {r: 1, g: 1, b: 1, a: 1}
+  deActivatedButtonColor: {r: 1, g: 1, b: 1, a: 0.19607843}
   scale: {fileID: 1673554657}
 --- !u!1 &170278605
 GameObject:
@@ -814,6 +816,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 10
+  activatedButtonColor: {r: 1, g: 1, b: 1, a: 1}
+  deActivatedButtonColor: {r: 1, g: 1, b: 1, a: 0.19607843}
   scale: {fileID: 1673554657}
 --- !u!1 &511136661
 GameObject:
@@ -2090,6 +2094,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 15
+  activatedButtonColor: {r: 1, g: 1, b: 1, a: 1}
+  deActivatedButtonColor: {r: 1, g: 1, b: 1, a: 0.19607843}
   scale: {fileID: 1673554657}
 --- !u!1 &1023105653
 GameObject:
@@ -3124,6 +3130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 40
+  activatedButtonColor: {r: 1, g: 1, b: 1, a: 1}
+  deActivatedButtonColor: {r: 1, g: 1, b: 1, a: 0.19607843}
   scale: {fileID: 1673554657}
 --- !u!1 &1864398752
 GameObject:
@@ -3323,6 +3331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 25
+  activatedButtonColor: {r: 1, g: 1, b: 1, a: 1}
+  deActivatedButtonColor: {r: 1, g: 1, b: 1, a: 0.19607843}
   scale: {fileID: 1673554657}
 --- !u!1 &1987947962
 GameObject:
