@@ -1,0 +1,2 @@
+C:\Users\zorka\OneDrive\Skrivbord\WillOfTheWisp\Will Of The Wisp\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\zorka\OneDrive\Skrivbord\WillOfTheWisp\Will Of The Wisp\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
