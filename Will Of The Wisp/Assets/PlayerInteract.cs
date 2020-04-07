@@ -26,29 +26,27 @@ public class PlayerInteract : MonoBehaviour
 
         if (closestObject != null)
         {
-            if (Vector3.Distance(transform.position, closestObject.transform.position) < radius && Input.GetKeyDown(pickUpKey))
+            if (InRange() && Input.GetKeyDown(pickUpKey))
             {
                 int currentLayer = closestObject.layer;
 
                 if (currentLayer == LayerMask.NameToLayer(interactableLayerName))
                 {
-
+                    closestObject.GetComponent<ActivationManager>().Activate();
                 }
                 else if (currentLayer == LayerMask.NameToLayer(pickUpLayerName))
                 {
+                    string name = closestObject.GetComponent<PickUp>().GetItemName();
+                    pI.AddToInventory(name);
+                    closestObject.SetActive(false);
 
-                    // string name = closestObject.GetComponent<PickUp>().GetItemName();
-                    //pI.AddToInventory(name);
-                    //closestObject.SetActive(false);
-
-                    closestObject.GetComponent<Lever>().InteractLever();
+                    closestObject.layer = 0;
                 }
-                else if (currentLayer == LayerMask.NameToLayer(lookLayerName))
+                else if (currentLayer == LayerMask.NameToLayer(lookLayerName)) 
                 {
 
                 }
 
-                //closestObject.layer = 0;
                 closestObject = null;
             }
         }
@@ -72,6 +70,11 @@ public class PlayerInteract : MonoBehaviour
                 closestObject = r.transform.gameObject;
             }
         }
+    }
+
+    bool InRange()
+    {
+        return Vector3.Distance(transform.position, closestObject.transform.position) < radius;
     }
 
     void OnDrawGizmos()
