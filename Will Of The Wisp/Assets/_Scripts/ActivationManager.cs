@@ -11,6 +11,7 @@ public class ActivationManager : MonoBehaviour
     Candle c;
     TransitionDoor t;
     Flowchart f;
+    WeightButton w;
 
     private enum Interaction
     {
@@ -37,23 +38,10 @@ public class ActivationManager : MonoBehaviour
             case Interaction.Dialogue:
                 f = GetComponent<Flowchart>();
                 break;
+            case Interaction.Weight:
+                w = GetComponent<WeightButton>();
+                break;
         }
-        //if (myInteraction == Interaction.Lever)
-        //{
-        //    l = GetComponent<Lever>();
-        //}
-        //else if(myInteraction == Interaction.Candle)
-        //{
-        //    c = GetComponent<Candle>();
-        //}
-        //else if(myInteraction == Interaction.Door)
-        //{
-        //    t = GetComponent<TransitionDoor>();
-        //}
-        //else if(myInteraction == Interaction.Dialogue)
-        //{
-        //    f = GetComponent<Flowchart>();
-        //}
     }
 
     public void Activate(Transform player)
@@ -62,22 +50,6 @@ public class ActivationManager : MonoBehaviour
         c?.ActivateCandle();
         t?.Interact(player);
         f?.SendFungusMessage("hello");
-
-        //if (l != null)
-        //{
-        //    l.InteractLever();
-        //}
-        //else if(c != null)
-        //{
-        //    c.ActivateCandle();
-        //}
-        //else if(t != null)
-        //{
-        //    t.Interact(player);
-        //}
-        //else if(f != null)
-        //{
-        //    f.SendFungusMessage("hello");
-        //}
+        w?.InteractLever();
     }
 }

@@ -7,7 +7,6 @@ public class PlayerInteract : MonoBehaviour
     PlayerInventory pI;
 
     GameObject closestObject;
-    GameObject previousObject;
 
     [SerializeField] float radius;
     [SerializeField] bool showRadius = false;
@@ -62,6 +61,7 @@ public class PlayerInteract : MonoBehaviour
         Vector3 newTransform = transform.position;
         float destination = Mathf.Infinity;
 
+        closestObject = null;
         foreach (RaycastHit r in circleHit)
         {
             Vector3 diff = r.transform.position - newTransform;
@@ -69,7 +69,6 @@ public class PlayerInteract : MonoBehaviour
             if (destination > newDistance && newDistance >= 0)
             {
                 destination = newDistance;
-                previousObject = closestObject;
                 closestObject = r.transform.gameObject;
             }
         }
@@ -77,7 +76,7 @@ public class PlayerInteract : MonoBehaviour
 
     bool InRange()
     {
-        return Vector3.Distance(transform.position, closestObject.transform.position) < radius;
+        return (Vector3.Distance(new Vector3(transform.position.x, 0f, transform.position.z), new Vector3(closestObject.transform.position.x, 0f, closestObject.transform.position.z)) < radius);
     }
 
     void OnDrawGizmos()
