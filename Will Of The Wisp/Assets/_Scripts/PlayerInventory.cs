@@ -6,19 +6,16 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] List<Item> items = new List<Item>();
+    [SerializeField] UIInventory uiinventory;
 
-    void Start()
-    {
-        
-    }
-
-    public void AddToInventory(string itemNameToAdd)
+    public void AddToInventory(string itemNameToAdd, string itemDiscriptionToAdd)
     {
         for(int i = 0; i < items.Count; i++)
         {
             if(items[i].name == itemNameToAdd)
             {
                 items[i].AddToInventory();
+                uiinventory.AddToInventory(items[i].name, itemDiscriptionToAdd);
                 return;
             }
         }

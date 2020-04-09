@@ -36,8 +36,11 @@ public class PlayerInteract : MonoBehaviour
                 }
                 else if (currentLayer == LayerMask.NameToLayer(pickUpLayerName))
                 {
-                    string name = closestObject.GetComponent<PickUp>().GetItemName();
-                    pI.AddToInventory(name);
+                    PickUp pickUp = closestObject.GetComponent<PickUp>();
+                    string name = pickUp.GetItemName();
+                    string discription = pickUp.GetItemDiscription();
+                    pI.AddToInventory(name, discription);
+
                     closestObject.SetActive(false);
 
                     closestObject.layer = 0;
